@@ -1,6 +1,6 @@
 package JavaBasics;
 
-class JavaBasicExercises {
+class Main {
     public void main(String[] args) {
         Order order = new Order(1, "Pencho");
 
