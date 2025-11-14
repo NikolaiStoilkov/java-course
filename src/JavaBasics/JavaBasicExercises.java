@@ -1,6 +1,6 @@
 package JavaBasics;
 
-class FixedConstantsAndEnhanced {
+class JavaBasicExercises {
     public void main(String[] args) {
         Order order = new Order(1, "Pencho");
 
@@ -9,11 +9,9 @@ class FixedConstantsAndEnhanced {
                 1,
                 "Gosho"
         );
-    }
-}
 
-class ClassesAndObjects {
-    public void main(String[] args) {
+        // ----------------------------------------------------------------------------------------------
+
         Book book = new Book(
                 "The Lord of the Rings",
                 "J.R.R. Tolkien",
@@ -23,11 +21,9 @@ class ClassesAndObjects {
 
 
         book.displayBookInfo();
-    }
-}
 
-class ConstructorOverloading {
-    public void main(String[] args) {
+        // ----------------------------------------------------------------------------------------------
+
         Student unknown = new Student();
         Student std1 = new Student(
                 "1",
@@ -45,4 +41,3 @@ class ConstructorOverloading {
         IO.println(std2.getName() + " | " + std2.getID() + " | " + std2.age() + " | " + std2.gpa());
     }
 }
-
