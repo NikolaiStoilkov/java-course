@@ -1,3 +1,5 @@
+package JavaBasics;
+
 public class MultipleClassesInSameFile {
     public static void main(String[] args) {
         IO.println(GenerateMessage.generateMessage());
