@@ -1,19 +1,91 @@
 import java.io.*;
 import java.text.*;
 import java.util.*;
+
 import static java.lang.Integer.parseInt;
 
-import static java.util.stream.Collectors.joining;
-
-
 public class Solution {
+    public void main(String[] args) {
 
-    public void main(String[] args) throws IOException {
-        mathQueries();
+    }
+
+    void readEachLineOfFile() {
+//        File file = new File("src/input.txt");
+        FileNumber fileNumber = new FileNumber();
+
+        try (Scanner currentFile = new Scanner(System.in)) {
+            while (currentFile.hasNextLine()) {
+                String fileNextLine = currentFile.nextLine();
+
+                fileNumber.addNumbersToForwardedLine(fileNextLine);
+            }
+        }
+    }
+
+    static class FileNumber {
+        public int lineCount = 1;
+
+        public FileNumber() {
+
+        }
+
+        public void addNumbersToForwardedLine(String line) {
+            System.out.println(lineCount + " " + line);
+            increaseLineCounter();
+        }
+
+        void increaseLineCounter() {
+            lineCount++;
+        }
+    }
+
+    void holdIntegerValues() {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+
+        for (int i = 0; i < t; i++) {
+            try {
+                long x = sc.nextLong();
+                System.out.println(x + " can be fitted in:");
+
+                Range r = new Range(x);
+                r.isInRange();
+
+            } catch (Exception e) {
+                System.out.println(sc.next() + " can't be fitted anywhere.");
+            }
+        }
+        sc.close();
+    }
+
+    class Range {
+        private long range;
+
+        public Range(long range) {
+            this.range = range;
+        }
+
+        public void isInRange() {
+            if (range >= Byte.MIN_VALUE && range <= Byte.MAX_VALUE) {
+                System.out.println("* byte");
+            }
+
+            if (range >= Short.MIN_VALUE && range <= Short.MAX_VALUE) {
+                System.out.println("* short");
+            }
+
+            if (range >= Integer.MIN_VALUE && range <= Integer.MAX_VALUE) {
+                System.out.println("* int");
+            }
+
+            if (range >= Long.MIN_VALUE && range <= Long.MAX_VALUE) {
+                System.out.println("* long");
+            }
+        }
     }
 
     void mathQueries() {
-        // query formula (a + 2^n * b)
+        // query formula (a + 2^n-1 * b)
 
         Scanner scanner = new Scanner(System.in);
         LinkedList<int[]> queryValues = new LinkedList<>();
