@@ -6,8 +6,67 @@ import static java.lang.Integer.parseInt;
 
 public class Solution {
     public void main(String[] args) {
-
+        findDay();
     }
+
+    public String findDay() {
+        int year = 2015;
+        int month = 5;
+        int date = 8;
+
+        Calendar calendar = Calendar.getInstance();
+        System.out.println(calendar.getTimeZone());
+
+
+        calendar.set(Calendar.YEAR, year);
+        calendar.set(Calendar.MONTH, month);
+        calendar.set(Calendar.DATE, date);
+
+        return calendar.getDisplayName(Calendar.DAY_OF_WEEK, Calendar.LONG_FORMAT, Locale.ENGLISH).toUpperCase();
+    }
+
+    public String getDay(Calendar calendar){
+        return calendar.getTime().toString().split(" ")[0];
+    }
+
+    static void findParallelogram() throws Exception {
+        Scanner sc = new Scanner(System.in);
+        Parallelogram prl = new Parallelogram();
+
+        for (int i = 0; i < 1; i++) {
+            int b = sc.nextInt();
+            sc.nextLine();
+
+            int h = sc.nextInt();
+            // sc.nextLine();
+
+            if (b <= 0 || h <= 0) {
+                System.out.println("java.lang.Exception: Breadth and height must be positive");
+                return;
+            }
+
+            Parallelogram.b = b;
+            Parallelogram.h = h;
+
+            int area = prl.findArea();
+
+            System.out.println(area);
+        }
+    }
+
+    static class Parallelogram {
+        private static int b = 0;
+        private static int h = 0;
+
+        public Parallelogram() {
+
+        }
+
+        public Integer findArea() {
+            return b * h;
+        }
+    }
+
 
     void readEachLineOfFile() {
 //        File file = new File("src/input.txt");
@@ -58,8 +117,8 @@ public class Solution {
         sc.close();
     }
 
-    class Range {
-        private long range;
+    static class Range {
+        private final long range;
 
         public Range(long range) {
             this.range = range;
